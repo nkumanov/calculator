@@ -1,0 +1,50 @@
+@import "variables";
+@import "mixins";
+:host {
+  article:nth-child(1) {
+    @include display-flex(column);
+    p {
+      font-size: 1.4rem;
+      color: $primary-text-color;
+      text-align: right;
+      border: none;
+      word-break: break-all;
+    }
+    form {
+      @include display-flex(column, right);
+      input {
+        background-color: transparent;
+        height: 5rem;
+        display: block;
+        width: 100%;
+        color: $primary-text-color;
+        border: none;
+        font-size: 3rem;
+        text-align: right;
+        outline: none;
+      }
+      span {
+        font-size: 1rem;
+        color: $error;
+        font-weight: 500;
+        text-align: right;
+      }
+    }
+  }
+  article:last-child {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 0.625rem;
+    max-width: 50rem;
+    margin: auto;
+    & app-action-element:first-of-type,
+    & app-action-element:nth-of-type(16) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.calculate {
+  display: none;
+}

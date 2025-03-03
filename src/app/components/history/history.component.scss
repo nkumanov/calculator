@@ -1,0 +1,63 @@
+@import "variables";
+@import "mixins";
+:host {
+  article {
+    width: 100%;
+    height: auto;
+    @include display-flex(column);
+    p {
+      font-size: 1.5rem;
+      color: $primary-text-color;
+      padding: 1rem;
+      text-align: right;
+      border-bottom: 0.063rem solid $primary-text-color;
+      cursor: pointer;
+      word-break: break-all;
+    }
+  }
+}
+
+.clipboard {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 25rem;
+  color: $primary-text-color;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  display: none;
+  background-color: $primary-text-bg;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0.063rem dotted black;
+}
+
+.tooltip:after {
+  content: "Copy to clipboard";
+  position: absolute;
+  top: 3.75rem;
+  right: 0;
+  display: none;
+  z-index: 1000;
+  text-align: center;
+  background-color: $primary-text-bg;
+  color: $primary-text-color;
+  border-radius: 0.25rem;
+  padding: 0.125rem;
+}
+.tooltip:hover:after {
+  display: block;
+}

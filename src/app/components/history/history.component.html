@@ -1,0 +1,10 @@
+<section>
+  <article  (click)="copyToClipboard($event)">
+    @for(equasion of equasions; track equasion){
+    <p class="tooltip" [attr.data-result]="equasion.result">{{ equasion.equation }}</p>
+    }
+  </article>
+  <div #clipboardContainer class="clipboard">
+    <p>Copied to clipboard.</p>
+  </div>
+</section>

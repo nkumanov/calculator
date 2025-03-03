@@ -1,0 +1,35 @@
+@import "variables";
+@import "mixins";
+:host {
+  main {
+    @include display-flex(column, center, center);
+    header {
+      nav {
+        @include display-flex(row, flex-start, normal);
+        gap: 0.8rem;
+        a {
+          display: inline-block;
+          background-color: $primary-text-bg;
+          padding: 0.5rem 1rem;
+          color: $primary-text-color;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 1.3rem;
+          border-radius: 1rem;
+        }
+      }
+    }
+    section:nth-child(1) {
+      margin: 1rem auto;
+      background-color: black;
+      width: 31.25rem;
+      height: auto;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    section:nth-child(2) {
+      margin-top: 2rem;
+    }
+  }
+}

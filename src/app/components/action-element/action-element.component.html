@@ -1,0 +1,12 @@
+<button
+  (click)="handleAction($event)"
+  [value]="actionElementData.content"
+  [attr.actionType]="actionElementData.type"
+  [ngClass]="{
+    btnAction:
+      actionElementData.type !== actionTypes.CONTENT &&
+      actionElementData.type !== actionTypes.DECIMAL
+  }"
+>
+  {{ actionElementData.content }}
+</button>

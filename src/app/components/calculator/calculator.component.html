@@ -1,0 +1,28 @@
+<article>
+  <p>{{ calcService.lastResult | async }}</p>
+  <form [formGroup]="calcForm">
+    <input appCalcInputControl type="text" formControlName="calcInput" />
+    @if(calcForm.invalid){
+    <span>Invalid user input</span>
+    }
+    <button
+      type="submit"
+      class="calculate"
+      (click)="handleActionItem({
+      actionType: actionTypes.EQUALITY,
+      value: '=',
+    })"
+    >
+      Calculate
+    </button>
+  </form>
+</article>
+
+<article>
+  @for(actionElement of actionElements; track actionElement){
+  <app-action-element
+    [actionElementData]="actionElement"
+    (action)="handleActionItem($event)"
+  ></app-action-element>
+  }
+</article>
