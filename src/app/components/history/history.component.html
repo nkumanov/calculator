@@ -1,7 +1,11 @@
 <section>
-  <article  (click)="copyToClipboard($event)">
-    @for(equasion of equasions; track equasion){
-    <p class="tooltip" [attr.data-result]="equasion.result">{{ equasion.equation }}</p>
+  <article (click)="copyToClipboard($event)">
+    @if(equasions.length){ @for(equasion of equasions; track equasion){
+    <p class="tooltip" [attr.data-result]="equasion.result">
+      {{ equasion.equation }}
+    </p>
+    } }@else {
+    <h3>No history yet.</h3>
     }
   </article>
   <div #clipboardContainer class="clipboard">
